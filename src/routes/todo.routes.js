@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.use(authMiddleware);
 
-router.get('/', getTodos);
+router.get('/',getTodos);
 router.post('/', createTodo);
 router.put('/:id', updateTodo);
 router.delete('/:id', deleteTodo);

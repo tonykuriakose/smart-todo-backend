@@ -5,13 +5,14 @@ import prisma from '../lib/prisma.js';
 const JWT_SECRET = process.env.JWT_SECRET;
 
 export const signup = async (req, res) => {
-  console.log("singup");
+
+  console.log("singup function working");
   
   const { email, password } = req.body;
 
   try {
     const existingUser = await prisma.user.findUnique({ where: { email } });
-    if (existingUser) return res.status(400).json({ message: 'User already exists' });
+    if (existingUser) return res.status(400).json({ message: 'User exists already' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await prisma.user.create({

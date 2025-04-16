@@ -18,8 +18,8 @@ model User {
 model Todo {
   id        String   @id @default(uuid())
   title     String
-  status    String   // To Do, In Progress, Done
-  priority  String   // Low, Medium, High
+  status    String   
+  priority  String   
   dueDate   DateTime?
   createdAt DateTime @default(now())
   user      User     @relation(fields: [userId], references: [id])

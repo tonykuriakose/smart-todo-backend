@@ -1,6 +1,8 @@
 import ai from '../services/gemini.service.js';
 
-// ✅ SUGGEST TASKS
+
+
+
 export const suggestTasks = async (req, res) => {
   const { input } = req.body;
   const prompt = `Convert this into structured tasks with due dates if possible:\n"${input}"`;
@@ -19,7 +21,8 @@ export const suggestTasks = async (req, res) => {
   }
 };
 
-// ✅ WEEKLY SUMMARY
+
+
 export const weeklySummary = async (req, res) => {
   const { completedTasks } = req.body;
   const prompt = `Summarize the following completed tasks:\n${JSON.stringify(completedTasks)}`;
@@ -38,7 +41,8 @@ export const weeklySummary = async (req, res) => {
   }
 };
 
-// ✅ TASK CHAT
+
+
 export const taskChat = async (req, res) => {
   const { question, context } = req.body;
   const prompt = `Based on these tasks: ${JSON.stringify(context)}, answer this: "${question}"`;
