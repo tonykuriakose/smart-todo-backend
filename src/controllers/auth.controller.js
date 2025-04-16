@@ -5,6 +5,8 @@ import prisma from '../lib/prisma.js';
 const JWT_SECRET = process.env.JWT_SECRET;
 
 export const signup = async (req, res) => {
+  console.log("singup");
+  
   const { email, password } = req.body;
 
   try {

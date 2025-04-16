@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './src/routes/auth.routes.js';
 import { getTodos } from './src/controllers/todo.controller.js';
+import aiRoutes from './src/routes/ai.routes.js';
+import todoRoutes from './src/routes/todo.routes.js';
 
 dotenv.config();
 
@@ -12,7 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
-app.use("/api/todos",getTodos);
+app.use("/api/todos",todoRoutes);
+app.use('/api/ai', aiRoutes)
 
 app.get('/', (req, res) => res.send('SmartToDo API running!'));
 
