@@ -5,7 +5,6 @@ import authRoutes from './src/routes/auth.routes.js';
 import { getTodos } from './src/controllers/todo.controller.js';
 import aiRoutes from './src/routes/ai.routes.js';
 import todoRoutes from './src/routes/todo.routes.js';
-
 dotenv.config();
 
 const app = express();
@@ -19,5 +18,5 @@ app.use('/api/ai', aiRoutes)
 
 app.get('/', (req, res) => res.send('SmartToDo API running!'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

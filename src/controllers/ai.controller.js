@@ -42,21 +42,3 @@ export const weeklySummary = async (req, res) => {
 };
 
 
-
-export const taskChat = async (req, res) => {
-  const { question, context } = req.body;
-  const prompt = `Based on these tasks: ${JSON.stringify(context)}, answer this: "${question}"`;
-
-  try {
-    const result = await ai.models.generateContent({
-      model: 'gemini-1.5-flash',
-      contents: [{ role: 'user', parts: [{ text: prompt }] }]
-    });
-
-    const text = result.candidates[0]?.content?.parts?.[0]?.text || 'No answer generated.';
-    res.json({ answer: text });
-  } catch (err) {
-    console.error('[Gemini ERROR - taskChat]', err);
-    res.status(500).json({ error: 'Failed to answer question' });
-  }
-};
